@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🦷 AI Voice Powered Dental Assistant(AivaDent)
 
-## Getting Started
+An intelligent, modern dental appointment management platform with an AI voice agent that helps patients book appointments, verify emails, and manage their dental visits seamlessly.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Highlights
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🏠 **Modern Landing Page** — Beautiful gradients, responsive design, and imagery.
+- 🔐 **Authentication via Clerk** — Supports Google, GitHub, and Email/Password login.
+- 🔑 **Email Verification** — Secure 6-digit verification code sent to your inbox.
+- 📅 **Appointment Booking System** — Streamlined 3-step flow:
+  1. Select Dentist
+  2. Choose Service & Time
+  3. Confirm Booking
+- 📩 **Email Notifications** — Instant confirmation and reminders via Resend.
+- 📊 **Admin Dashboard** — Manage, track, and update appointments with ease.
+- 🗣️ **AI Voice Agent (Vapi)** — Smart voice assistant for bookings and inquiries *(Pro Plans only)*.
+- 💳 **Subscription Payments** — Integrated with Clerk (Free + 2 Paid Plans).
+- 🧾 **Automatic Invoices** — Sent directly to users via email after payment.
+- 💸 **Smart Subscription Upgrades** — Users pay only the difference when upgrading.
+- 📂 **PostgreSQL** — Reliable data storage and persistence.
+- 🎨 **Tailwind CSS + Shadcn** — Modern, clean, and responsive UI components.
+- ⚡ **TanStack Query** — Efficient client-side data fetching and caching.
+- 🤖 **CodeRabbit Integration** — Automated PR optimization and review.
+- 🧑‍💻 **GitHub Workflow** — Branching, pull requests, and merges for team collaboration.
+- 🚀 **Deployment on Sevalla** — Fast and free-tier friendly hosting.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧰 Tech Stack
 
-## Learn More
+**Frontend:** Next.js, React, Tailwind CSS, Shadcn/UI  
+**Backend:** Node.js, Express  
+**Database:** PostgreSQL  
+**Auth:** Clerk  
+**Payments:** Clerk Subscriptions  
+**Email Service:** Resend  
+**AI Voice Agent:** Vapi  
+**Deployment:** Sevalla  
+**Version Control:** Git + GitHub  
+**CI/CD:** CodeRabbit
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧾 Features Overview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Feature | Description |
+|----------|--------------|
+| **Authentication** | Secure login and signup using OTP and also used Google Auth |
+| **AI Voice Assistant** | Book or manage appointments using voice commands |
+| **Appointment Booking** | Easy 3-step flow for patients |
+| **Admin Panel** | Manage doctors, appointments, and schedules |
+| **Email System** | Booking confirmations and reminders via Resend |
+| **Payments** | Subscription-based plans with automatic invoices |
+| **Smart Upgrades** | Pay only for the difference in plan pricing |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📈 Future Improvements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 🧠 Add multilingual AI voice support
+- 📱 Launch mobile-friendly PWA version
+- 💬 Enable in-app chat with AI dental assistant
+- 🔔 Add SMS notifications for reminders
+
+---
