@@ -36,3 +36,27 @@ export function formatPhoneNumber(value: string): string {
   // Return formatted 10-digit number
   return `+91 ${digits.slice(0, 5)} ${digits.slice(5)}`;
 }
+
+export const getNext5Days = () => {
+  const dates = [];
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  for (let i = 0; i < 5; i++) {
+    const date = new Date(tomorrow);
+    date.setDate(date.getDate() + i);
+    dates.push(date.toISOString().split('T')[0]);
+  }
+  return dates;
+}
+
+export const getAvailableTimeSlots = () => {
+  return ["10:00", "11:00", "12:00", "01:00", "02:00", "03:00", "04:00", "05:00"
+  ];
+}
+
+export const APPOINTMENT_TYPES = [
+  {id: "consultation", name: "Consultation", duration: "60 min", price: "₹500"},
+  {id: "cleaning", name: "Teeth Cleaning", duration: "20 min", price: "₹800"},
+  {id: "extraction", name: "Teeth Extraction", duration: "30 min", price: "₹2000"},
+  {id: "whitening", name: "Teeth Whitening", duration: "90 min", price: "₹300"},
+];
