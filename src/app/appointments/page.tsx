@@ -1,5 +1,6 @@
 "use client"
 
+import AppointmentConfirmationModal from "@/components/appointments/AppointmentConfirmationModal"
 import BookingConfirmationStep from "@/components/appointments/BookingConfirmationStep"
 import DoctorSelectionStep from "@/components/appointments/DoctorSelectionStep"
 import ProgressSteps from "@/components/appointments/ProgressSteps"
@@ -18,7 +19,7 @@ function AppointmentsPage() {
     const [selectedType, setSelectedType] =  useState("")
     const [currentStep, setCurrentStep] = useState(1)
     const [showConfirmationModal, setShowConfirmationModal] = useState(false)
-    const [bookedAppointment, setBookedAppointment] = useState(null)
+    const [bookedAppointment, setBookedAppointment] = useState<any>(null)
     const bookAppointmentMutation = useBookAppointment();
 
     const {data: userAppointments = []} = useUserAppointments();
@@ -44,6 +45,30 @@ function AppointmentsPage() {
       }, {
         onSuccess: async(appointment) => {
           setBookedAppointment(appointment);
+
+          try{
+            const emailResponse = await fetch('/api/send-appointment-email', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                userEmail: appointment.patientEmail,
+                doctorName: appointment.doctorName,
+                appointmentDate: format(new Date(appointment.date), "dd-MM-yyyy"),
+                appointmentTime: appointment.time,
+                appointmentType: appointmentType?.name,
+                duration : appointmentType?.duration,
+                price: appointmentType?.price,
+              }),
+            });
+            if (!emailResponse.ok) {
+              console.error('Failed to send confirmation email');
+            }
+          } catch (error) {
+            console.error('Error sending confirmation email:', error);
+          }
+          
           setShowConfirmationModal(true);
 
           setSelectedDentistId(null);
@@ -101,6 +126,16 @@ function AppointmentsPage() {
         )} 
 
     </div>
+
+    {bookedAppointment &&  (
+      <AppointmentConfirmationModal open = {showConfirmationModal} onOpenChange={setShowConfirmationModal} appointmentDetails={{
+        doctorName: bookedAppointment.doctorName,
+        appointmentDate: format(new Date(bookedAppointment.date), "dd-MM-yyyy EEEE"),
+        appointmentTime: bookedAppointment.time,
+        userEmail: bookedAppointment.patientEmail,
+      }} />
+    )}
+
     {userAppointments.length > 0 && (
       <div className="mb-8 max-w-7xl mx-auto px-6 py-8">
         <h2 className="text-xl font-semibold mb-4">Your Upcoming Appointments</h2>
