@@ -25,7 +25,7 @@ function ProgressSteps({ currentStep }: { currentStep: number }) {
                     )}
                 </div>
             )
-        })};
+        })}
     </div>
   )
 }

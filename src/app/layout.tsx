@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <TanStackProvider>
+    
     <ClerkProvider appearance={
       {
         variables:{
@@ -45,6 +45,7 @@ export default function RootLayout({
         }
       }
     }>
+      <TanStackProvider>
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
@@ -54,7 +55,8 @@ export default function RootLayout({
           {children}
         </body>
       </html>
+      </TanStackProvider>
     </ClerkProvider>
-    </TanStackProvider>
+    
   );
 }

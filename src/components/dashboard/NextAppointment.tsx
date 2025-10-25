@@ -17,7 +17,7 @@ async function NextAppointment() {
   const nextAppointment = upcomingAppointments[0];
   if(!nextAppointment) return <NoNextAppointments />;
   const appointmentDate = parseISO(nextAppointment.date);
-  const formattedDate = format(appointmentDate, "DD MMM YYYY EEEE");
+  const formattedDate = format(appointmentDate, "dd MMM yyyy EEEE");
   const isToday = isSameDay(appointmentDate, new Date());
   return (
     <Card className=" border-primary/20 bg-gradient-to-br from-primary/5 to-background">

@@ -8,13 +8,15 @@ import CTA from "@/components/landing/CTA";
 import Footer from "@/components/landing/Footer";
 import { redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs/server";
+import { syncUser } from "@/lib/actions/users";
+import RedirectIfSignedIn from "@/components/RedirectIfSignedIn";
 
-export default async function Home() {
-  const user = await currentUser();
-  if(user) redirect('/dashboard');
+export default async  function Home() {
+   
   
   return (
     <div className="min-h-screen bg-background">
+      <RedirectIfSignedIn/>
       <Header />
       <Hero />
       <HowItWorks />

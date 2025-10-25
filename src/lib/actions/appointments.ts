@@ -1,6 +1,7 @@
 "use server"
 import { auth } from "@clerk/nextjs/server";
 import { prisma } from "../prisma";
+import { AppointmentStatus } from "@prisma/client";
 
 function transformAppointment(appointment: any) {
     return {
@@ -12,33 +13,36 @@ function transformAppointment(appointment: any) {
         date: appointment.date.toISOString().split('T')[0], 
     };
 }
-export async function getAppointments() {
-    try{
-        const appointments = await prisma.appointment.findMany({
-            include:{
-                user: {
-                    select: {
-                        firstName: true,
-                        lastName: true,
-                        email: true,
-                    },
-                },
-            doctor: {
-                select: {
-                    name: true,
-                    imageUrl: true,
-                    } },
-                },
-                orderBy: {
-                    createdAt: 'desc'
-                },
-            });
-         return appointments;
+export async function getAppointments(clerkUserId: string) {
+  // Find the user in the DB
+  const dbUser = await prisma.user.findUnique({
+    where: { clerkId: clerkUserId },
+  });
 
-    } catch (error) {
-        console.log("Error fetching appointments:", error);
-        throw new Error("Could not fetch appointments");
-    }
+  if (!dbUser) {
+    
+    console.warn("User not found in DB:", clerkUserId);
+    return [];
+   
+  }
+
+  const appointments = await prisma.appointment.findMany({
+    where: { userId: dbUser.id },
+    include: {
+      doctor: {
+        select: {
+          name: true,
+          imageUrl: true,
+          specialty: true,
+        },
+      },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return appointments;
 }
 
 export async function getUserAppointments()
@@ -95,7 +99,7 @@ export async function getUserAppointmentStats()
     }
 }
 
-export async function getBookedTimeSlots(date: string, doctorId: string) {
+export async function getBookedTimeSlots(doctorId: string,date: string) {
     try{
         const appointments = await prisma.appointment.findMany({where: {doctorId, date: new Date(date), status: {
             in: ["CONFIRMED", "COMPLETED"]
@@ -162,4 +166,17 @@ export async function bookAppointment(input: BookAppointmentInput)
         throw new Error("Could not create appointment. Please try again later.");
     }
 
+}
+
+export async function updateAppointmentStatus(input: {id: string; status:AppointmentStatus}) {
+    try{
+        const appointment = await prisma.appointment.update({
+            where: {id: input.id},
+            data: {status: input.status},
+        });
+        return appointment;
+    } catch (error) {
+        console.error("Error updating appointment status:", error);
+        throw new Error("Could not update appointment status. Please try again later.");
+    }
 }

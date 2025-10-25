@@ -51,10 +51,10 @@ const Hero = () => {
               <div className='pt-8'>
                 <div className='flex items-center gap-6'>
                   <div className='flex -space-x-3'>
-                    <Image src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face" alt="" width={48} height={48} className='w-12 h-12 rounded-full object-cover ring-4 ring-background' />
-                    <Image src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face" alt="" width={48} height={48} className='w-12 h-12 rounded-full object-cover ring-4 ring-background' />
-                    <Image src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face" alt="" width={48} height={48} className='w-12 h-12 rounded-full object-cover ring-4 ring-background' />
-                    <Image src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=100&h=100&fit=crop&crop=face" alt="" width={48} height={48} className='w-12 h-12 rounded-full object-cover ring-4 ring-background' />
+                    <Image src="/image-1.avif" alt="" width={48} height={48} className='w-12 h-12 rounded-full object-cover ring-4 ring-background' />
+                    <Image src="/image-2.avif" alt="" width={48} height={48} className='w-12 h-12 rounded-full object-cover ring-4 ring-background' />
+                    <Image src="/image-3.avif" alt="" width={48} height={48} className='w-12 h-12 rounded-full object-cover ring-4 ring-background' />
+                    <Image src="/image-4.avif" alt="" width={48} height={48} className='w-12 h-12 rounded-full object-cover ring-4 ring-background' />
                   </div>
                   <div className='space-y-1'>
                     <div className='flex items-center gap-2'>
