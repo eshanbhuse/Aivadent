@@ -44,7 +44,6 @@ export async function syncUser() {
     });
     if (existingUser) return existingUser;
 
-    // Get primary email safely
     const primaryEmail =
       user.emailAddresses?.find(e => e.id === user.primaryEmailAddressId)?.emailAddress ||
       "";

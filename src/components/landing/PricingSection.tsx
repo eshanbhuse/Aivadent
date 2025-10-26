@@ -42,9 +42,9 @@ function PricingSection() {
             <div className="relative bg-gradient-to-br from-card/90 to-card/60 backdrop-blur-xl rounded-3xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <h3 className="text-2xl font-bold">Free</h3>
+                  <h3 className="text-2xl font-bold">Basic</h3>
                   <div className="flex items-end gap-1">
-                    <span className="text-4xl font-bold">$0</span>
+                    <span className="text-4xl font-bold">₹0</span>
                     <span className="text-muted-foreground mb-1">/month</span>
                   </div>
                   <p className="text-muted-foreground">Essential dental appointment booking</p>
@@ -92,7 +92,7 @@ function PricingSection() {
                   <h3 className="text-2xl font-bold">AI Basic</h3>
                   <div className="flex items-end gap-1">
                     <span className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                      $2
+                      ₹99
                     </span>
                     <span className="text-muted-foreground mb-1">/month</span>
                   </div>
@@ -110,7 +110,7 @@ function PricingSection() {
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircleIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <span className="text-sm">10 AI voice calls per month</span>
+                    <span className="text-sm">5 AI voice calls per month</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircleIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
@@ -140,10 +140,10 @@ function PricingSection() {
                 <div className="space-y-3">
                   <h3 className="text-2xl font-bold">AI Pro</h3>
                   <div className="flex items-end gap-1">
-                    <span className="text-4xl font-bold">$5</span>
+                    <span className="text-4xl font-bold">₹499</span>
                     <span className="text-muted-foreground mb-1">/month</span>
                   </div>
-                  <p className="text-muted-foreground">Unlimited AI consultations</p>
+                  <p className="text-muted-foreground">Unlimited AI consultations and support</p>
                 </div>
 
                 <Button
@@ -164,19 +164,11 @@ function PricingSection() {
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircleIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <span className="text-sm">Advanced AI dental analysis</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircleIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                     <span className="text-sm">Personalized care plans</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircleIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                     <span className="text-sm">24/7 priority AI support</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircleIcon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                    <span className="text-sm">Detailed health reports</span>
                   </div>
                 </div>
               </div>

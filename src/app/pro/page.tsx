@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
-import { PricingTable } from "@clerk/nextjs";
+import PricingTable from "@/components/pro/PricingTable";
+// import { PricingTable } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
 import { CrownIcon } from "lucide-react";
 import { redirect } from "next/navigation";
@@ -49,6 +50,7 @@ async function ProPage() {
                       Select the perfect plan to elevate your AI experience with our Pro features.
                     </p>
                   </div>
+                  {/* <PricingTable /> */}
                   <PricingTable />
                 </div>
             </div>
