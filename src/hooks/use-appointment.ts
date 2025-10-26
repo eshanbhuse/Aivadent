@@ -2,6 +2,19 @@
 import { bookAppointment, getAppointments, getBookedTimeSlots, updateAppointmentStatus } from "@/lib/actions/appointments";
 import { useUser } from "@clerk/nextjs";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+
+function transformAppointment(appointment: any) {
+  return {
+    ...appointment,
+    patientName: `${appointment.user.firstName || ""} ${appointment.user.lastName || ""}`.trim(),
+    patientEmail: appointment.user.email,
+    doctorName: appointment.doctor.name,
+    doctorImageUrl: appointment.doctor.imageUrl || "",
+    date: appointment.date.toISOString().split("T")[0],
+  };
+}
+
+
 // export function useGetAppointments() {
 //     const result = useQuery({
 //         queryKey: ['getAppointments'],
@@ -13,15 +26,17 @@ export function useGetAppointments() {
   const { user } = useUser();
 
   return useQuery({
-    queryKey: ['getAppointments', user?.id], 
+    queryKey: ["getAppointments", user?.id],
     queryFn: async ({ queryKey }) => {
-      const [, clerkUserId] = queryKey; 
+      const [, clerkUserId] = queryKey;
       if (!clerkUserId) return [];
-      return getAppointments(clerkUserId as string); 
+      const rawAppointments = await getAppointments(clerkUserId as string);
+
+      return rawAppointments.map(transformAppointment);
     },
-    enabled: !!user, 
+    enabled: !!user,
   });
-}                   
+}          
 export function useBookedTimeSlots(doctorId: string, date: string) {
     return useQuery({
         queryKey: ['getBookedTimeSlots'],

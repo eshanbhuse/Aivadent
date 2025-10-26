@@ -14,7 +14,6 @@ function transformAppointment(appointment: any) {
     };
 }
 export async function getAppointments(clerkUserId: string) {
-  // Find the user in the DB
   const dbUser = await prisma.user.findUnique({
     where: { clerkId: clerkUserId },
   });
