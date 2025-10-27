@@ -29,7 +29,7 @@ const plans: Plan[] = [
   {
     id: "ai_basic",
     name: "AI Basic",
-    price: 2,
+    price: 99,
     description: "AI consultations + appointment booking",
     features: [
       "Everything in Free",
@@ -43,7 +43,7 @@ const plans: Plan[] = [
   {
     id: "ai_pro",
     name: "AI Pro",
-    price: 5,
+    price: 499,
     description: "Unlimited AI consultations and support",
     features: [
       "Everything in AI Basic",
