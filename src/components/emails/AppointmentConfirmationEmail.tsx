@@ -34,10 +34,9 @@ function AppointmentConfirmationEmail({
             <Body style={main}>
                 <Container style={container}>
                     <Section style={logoContainer}>
-                        <Img src="https://i.ibb.co.com/tRy6cC2/logo.png" alt="AIVADENT Logo" width="50" height="50" style={logo} />
                         <Text style={logoText}>AIVADENT</Text>
                     </Section>
-                    <Heading style={h1}>Appointment Confirmation 🦷</Heading>
+                    <Heading style={h1}>Appointment Confirmation</Heading>
                     <Text style={text}>
                         Dear Patient,
                     </Text>
@@ -106,19 +105,16 @@ const logoContainer = {
   marginBottom: "32px",
 };
 
-const logo = {
-  borderRadius: "8px",
-  display: "inline",
-  verticalAlign: "middle",
-};
 
 const logoText = {
-  fontSize: "20px",
+  fontSize: "26px",
   fontWeight: "bold",
-  color: "#2563eb",
+  color: "#F97316",
   margin: "0",
   display: "inline",
   marginLeft: "12px",
+  verticalAlign: "middle",
+
 };
 
 const h1 = {
@@ -164,7 +160,7 @@ const buttonContainer = {
 };
 
 const button = {
-  backgroundColor: "#2563eb",
+  backgroundColor: "#F97316",
   borderRadius: "6px",
   color: "#ffffff",
   fontSize: "16px",
