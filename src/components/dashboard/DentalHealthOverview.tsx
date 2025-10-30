@@ -47,24 +47,31 @@ async function DentalHealthOverview() {
                 </div>
             </div>
             <div className="mt-6 p-4 bg-gradient-to-r from-primary/10 to-primary/5 rounded-xl border border-primary/20">
-            <div className="flex items-start gap-3">
-                <div className="size-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0">
-                <MessageSquareIcon className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                    <h4 className="font-semibold text-primary mb-1">Ready to get started?</h4>
-                    <p className="text-sm text-muted-foreground mb-3">Book your first appointment or try our AI voice assistant for instant dental advice</p>
-                    <div className="flex gap-2">
-                        <Link href="/voice">
-                            <Button size="sm" className="bg-primary hover:bg-primary/90">Try AI Assistant</Button>
-                        </Link>
-                        <Link href="/appointments">
-                            <Button size="sm" variant="outline">Book Appointment</Button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-            </div>
+  <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+    <div className="size-10 bg-primary/20 rounded-lg flex items-center justify-center shrink-0 mx-auto sm:mx-0">
+      <MessageSquareIcon className="h-5 w-5 text-primary" />
+    </div>
+    <div className="text-center sm:text-left w-full">
+      <h4 className="font-semibold text-primary mb-1">Ready to get started?</h4>
+      <p className="text-sm text-muted-foreground mb-3">
+        Book your first appointment or try our AI voice assistant for instant dental advice.
+      </p>
+      <div className="flex flex-col sm:flex-row justify-center sm:justify-start gap-2">
+        <Link href="/voice">
+          <Button size="sm" className="bg-primary hover:bg-primary/90 w-full sm:w-auto">
+            Try AI Assistant
+          </Button>
+        </Link>
+        <Link href="/appointments">
+          <Button size="sm" variant="outline" className="w-full sm:w-auto">
+            Book Appointment
+          </Button>
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         </CardContent>
     </Card>

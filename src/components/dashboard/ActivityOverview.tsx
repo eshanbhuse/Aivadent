@@ -3,7 +3,7 @@ import NextAppointment from "./NextAppointment"
 
 function ActivityOverview() {
   return (
-    <div className="grid lg:grid-cols-3 gap-6">
+    <div className="flex flex-col gap-6 w-full">
         <DentalHealthOverview />
         <NextAppointment />
     </div>
